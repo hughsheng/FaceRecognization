@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FaceRecognizationLibrary</string>
+    <string name="unclear">未获取到清晰的人脸，请保持静止</string>
+    <string name="imperfect">未获取到完整的人脸,请尽量保证人脸完全显示在屏幕上</string>
+</resources>
