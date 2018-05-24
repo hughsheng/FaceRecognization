@@ -1,6 +1,7 @@
 package ftthemepark.hytch.com.facerecognizationlibrary;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -11,7 +12,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.tzutalin.dlib.Constants;
 import com.tzutalin.dlib.FaceDet;
 import com.tzutalin.dlib.VisionDetRet;
@@ -27,7 +27,7 @@ import ftthemepark.hytch.com.facerecognizationlibrary.utils.ThreadManagerUtil;
 import ftthemepark.hytch.com.facerecognizationlibrary.utils.WeakHandler;
 import ftthemepark.hytch.com.facerecognizationlibrary.widges.CameraPreview;
 import ftthemepark.hytch.com.facerecognizationlibrary.widges.FaceOverlayView;
-import rx.Subscription;
+
 
 
 public class FaceFragment extends BaseFragment implements Handler.Callback {
@@ -38,7 +38,6 @@ public class FaceFragment extends BaseFragment implements Handler.Callback {
   private float scaleX;
   private float scaleY;
   private CameraPreview cameraPreview;
-  private Subscription subscription;
   private byte[] nv21 = new byte[640 * 480 * 2];
   private FrameLayout frameLayout;
   private FragmentActivity fragmentActivity;
@@ -201,10 +200,8 @@ public class FaceFragment extends BaseFragment implements Handler.Callback {
         break;
 
       case ConstantValue.HANDLER_FACE_SUCCESS:
-        Glide.with(fragmentActivity)
-            .load(ConstantValue.FACE_IMAGE)
-            .error(R.mipmap.ic_launcher)
-            .into(face_Preview);
+        face_Preview.setImageBitmap(BitmapFactory.decodeByteArray(ConstantValue.FACE_IMAGE, 0,
+            ConstantValue.FACE_IMAGE.length));
         mFaceView.setFaces(null);
         break;
     }

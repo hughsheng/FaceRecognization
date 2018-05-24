@@ -1,28 +1,12 @@
 package ftthemepark.hytch.com.facerecognizationlibrary.widges;
 
-import android.graphics.Bitmap;
+
 import android.hardware.Camera;
 import android.support.v4.app.FragmentActivity;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-
-import com.tzutalin.dlib.Constants;
-import com.tzutalin.dlib.FaceDet;
-import com.tzutalin.dlib.VisionDetRet;
-
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 import ftthemepark.hytch.com.facerecognizationlibrary.utils.CameraUtil;
-import rx.Observable;
-import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
-import rx.functions.Func1;
-import rx.schedulers.Schedulers;
-
 import static android.hardware.Camera.CameraInfo.CAMERA_FACING_FRONT;
-
 
 public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback, Camera
     .PreviewCallback {
